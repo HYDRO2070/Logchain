@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Event Logging System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Event Logger</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/submit-log">Log Event</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/query-log">Query Logs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/verify-logs">Verify Logs</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Dashboard</h1>
+    
+        <% if (isValid) { %>
+            <div class="alert alert-success">
+                <strong>✅ Log Chain is Valid!</strong>
+            </div>
+        <% } else { %>
+            <div class="alert alert-danger">
+                <strong>❌ Log Chain Integrity Broken!</strong>
+            </div>
+        <% } %>
+    
+        <!-- Render logs as cards -->
+        <div class="row">
+            <% if (logs.length === 0) { %>
+                <div class="alert alert-info text-center">No logs available.</div>
+            <% } else { %>
+                <% logs.forEach(log => { %>
+                    <div class="col-md-6 mb-3">
+                        <div class="card border-secondary">
+                            <div class="card-header">
+                                <strong>Event Type:</strong> <%= log.eventType %>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Timestamp:</strong> <%= log.timestamp %></p>
+                                <p><strong>Source App:</strong> <%= log.sourceApp %></p>
+                                <p><strong>Payload:</strong> <%= JSON.stringify(log.dataPayload) %></p>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } %>
+        </div>
+    </div>
+    
+
+    <footer class="text-center py-3 bg-dark text-light">
+        © 2024 Event Logging System | All Rights Reserved
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Logs - Event Logging System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Event Logger</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/submit-log">Log Event</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/query-log">Query Logs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/verify-logs">Verify Logs</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Query Logs</h1>
+        <form action="/query-log" method="GET" class="row g-3">
+            <div class="col-md-4">
+                <label for="eventType" class="form-label">Event Type</label>
+                <input type="text" id="eventType" name="eventType" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <label for="sourceApp" class="form-label">Source App</label>
+                <input type="text" id="sourceApp" name="sourceApp" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <label for="timestampRange" class="form-label">Timestamp Range</label>
+                <input type="date" id="start" name="start" class="form-control mb-2" placeholder="Start">
+                <input type="date" id="end" name="end" class="form-control" placeholder="End">
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-success">Search Logs</button>
+            </div>
+        </form>
+
+        <div class="mt-4">
+            <% if (logs && logs.length > 0) { %>
+                <% logs.forEach(log => { %>
+                    <div class="card border-success mb-3">
+                        <div class="card-header">Event Type: <%= log.eventType %></div>
+                        <div class="card-body">
+                            <p><strong>Timestamp:</strong> <%= log.timestamp %></p>
+                            <p><strong>Source App:</strong> <%= log.sourceApp %></p>
+                            <p><strong>Payload:</strong> <%= JSON.stringify(log.dataPayload) %></p>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <div class="alert alert-warning">No logs found.</div>
+            <% } %>
+        </div>
+    </div>
+
+    <footer class="text-center py-3 bg-dark text-light">
+        © 2024 Event Logging System | All Rights Reserved
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
