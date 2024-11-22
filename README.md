@@ -39,7 +39,7 @@ A **scalable**, **tamper-proof**, and **distributed** event logging system desig
 
 ## Live Deployment
 The application is live and hosted on **Vercel**.  
-Access it here: [Your Deployed App URL](#)
+Access it here: [Your Deployed App URL](https://logchain.onrender.com/)
 
 ---
 
@@ -56,7 +56,7 @@ Follow these steps to set up the project locally:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/event-logging-system.git
+   git clone https://github.com/HYDRO2070/Logchain.git
    cd event-logging-system
    ```
 
@@ -132,13 +132,7 @@ event-logging-system/
 
 ## Screenshots
 ### Home Page
-![Home Page](path-to-screenshot-home-page)
-
-### Submit Log Page
-![Submit Log Page](path-to-screenshot-submit-log-page)
-
-### Query Logs Page
-![Query Logs Page](path-to-screenshot-query-page)
+![Home Page](https://logchain.onrender.com/)
 
 ---
 
@@ -152,13 +146,3 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ---
 
-## Author
-Created by [Your Name](https://github.com/your-username). If you have any questions or feedback, feel free to reach out.
-```
-
-### Key Points:
-1. **Replace** `path-to-screenshot-home-page`, `path-to-screenshot-submit-log-page`, and `path-to-screenshot-query-page` with actual screenshot paths from your project.
-2. **Update the placeholder URL** `[Your Deployed App URL](#)` with your live deployed URL on Vercel.
-3. **Replace** `Your Name` and `your-username` with your actual name and GitHub username.
-
-This file will provide a clear and concise guide for setting up, using, and contributing to your project!
