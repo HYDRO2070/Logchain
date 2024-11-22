@@ -39,7 +39,7 @@ A **scalable**, **tamper-proof**, and **distributed** event logging system desig
 
 ## Live Deployment
 The application is live and hosted on **Vercel**.  
-Access it here: [Your Deployed App URL](https://logchain.onrender.com/)
+Access it here: [Here](https://logchain.onrender.com/)
 
 ---
 
