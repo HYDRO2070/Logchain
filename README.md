@@ -1,6 +1,3 @@
-Certainly! Here's the full `README.md` content you can copy and paste:
-
-```markdown
 # Event Logging System
 
 A **scalable**, **tamper-proof**, and **distributed** event logging system designed for robust and decentralized data integrity. Built using Node.js, Express, and MongoDB, the system provides event logging APIs, real-time log verification, and an intuitive UI for log management.
